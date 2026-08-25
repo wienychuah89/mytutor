@@ -15,6 +15,7 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+
 # ================= 预设场景 Prompt 库 =================
 PROMPTS = {
     "日常闲聊 (Casual Chit-Chat)": """
@@ -162,7 +163,8 @@ def transcribe_audio(audio_bytes: bytes) -> str:
 
 
 # ================= 主页面交互 =================
-st.title("🎙️ AI 英语口语私教")
+#st.title("🎙️ AI 英语口语私教")
+st.markdown(f'<h1 style="font-size: 18px;">🎙️ AI 英语口语私教</h1>', unsafe_allow_html=True)
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
