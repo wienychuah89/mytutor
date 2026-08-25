@@ -166,37 +166,39 @@ def transcribe_audio(audio_bytes: bytes) -> str:
 #st.title("🎙️ AI 英语口语私教")
 st.markdown(f'<h1 style="font-size: 18px;">🎙️ AI 英语口语私教</h1>', unsafe_allow_html=True)
 
-# 强制隐藏右上角 GitHub/Fork 图标、菜单按钮以及底部水印
 st.markdown(
     """
     <style>
-    /* 隐藏右上角整个工具栏与 GitHub/Fork 按钮 */
+    /* 1. 仅隐藏右上角的工具栏 (GitHub 图标、Fork 按钮、三个点) */
     [data-testid="stToolbar"] {
         visibility: hidden !important;
         display: none !important;
     }
     
-    /* 隐藏页面顶部 Header 区域 */
-    [data-testid="stHeader"] {
-        visibility: hidden !important;
-        height: 0px !important;
-    }
-    
-    /* 隐藏底部 "Made with Streamlit" 标志 */
+    /* 2. 隐藏底部 "Made with Streamlit" 水印与外链 */
     footer {
         visibility: hidden !important;
         display: none !important;
     }
     
-    /* 隐藏主菜单按钮 (三个点) */
+    /* 3. 隐藏主菜单容器 */
     #MainMenu {
         visibility: hidden !important;
         display: none !important;
     }
-    
-    /* 移除顶部多余的空白内边距，让手机端布局更紧凑 */
+
+    /* 4. 强制保证左侧侧边栏展开/收起按钮正常显示与可点击 */
+    [data-testid="stSidebarNav"] {
+        display: block !important;
+    }
+    [data-testid="stSidebarCollapseButton"] {
+        visibility: visible !important;
+        display: block !important;
+    }
+
+    /* 5. 适当减少页面顶部留白，让界面更紧凑 */
     .block-container {
-        padding-top: 1.5rem !important;
+        padding-top: 2rem !important;
         padding-bottom: 2rem !important;
     }
     </style>
