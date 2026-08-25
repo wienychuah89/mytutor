@@ -168,7 +168,8 @@ def call_gemini_text(prompt_text, system_instruction, keys):
 
 
 # ================= 页面主界面 =================
-st.title("🎙️ AI 英语口语私教")
+#st.title("🎙️ AI 英语口语私教")
+st.markdown(f'<h1 style="font-size: 18px;">🎙️ AI 英语口语私教</h1>', unsafe_allow_html=True)
 
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
