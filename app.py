@@ -166,45 +166,8 @@ def transcribe_audio(audio_bytes: bytes) -> str:
 #st.title("🎙️ AI 英语口语私教")
 st.markdown(f'<h1 style="font-size: 18px;">🎙️ AI 英语口语私教</h1>', unsafe_allow_html=True)
 
-st.markdown(
-    """
-    <style>
-    /* 1. 仅隐藏右上角的工具栏 (GitHub 图标、Fork 按钮、三个点) */
-    [data-testid="stToolbar"] {
-        visibility: hidden !important;
-        display: none !important;
-    }
-    
-    /* 2. 隐藏底部 "Made with Streamlit" 水印与外链 */
-    footer {
-        visibility: hidden !important;
-        display: none !important;
-    }
-    
-    /* 3. 隐藏主菜单容器 */
-    #MainMenu {
-        visibility: hidden !important;
-        display: none !important;
-    }
 
-    /* 4. 强制保证左侧侧边栏展开/收起按钮正常显示与可点击 */
-    [data-testid="stSidebarNav"] {
-        display: block !important;
-    }
-    [data-testid="stSidebarCollapseButton"] {
-        visibility: visible !important;
-        display: block !important;
-    }
 
-    /* 5. 适当减少页面顶部留白，让界面更紧凑 */
-    .block-container {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-    }
-    </style>
-""",
-    unsafe_allow_html=True,
-)
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
